@@ -112,7 +112,7 @@ export default function Projects() {
         </div>
 
         <div className="space-y-8">
-          {projects.map((project, index) => (
+          {projects.slice(0, 3).map((project, index) => (
             <motion.div
               key={project.title}
               className="project-item"
