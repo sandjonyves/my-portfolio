@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { SendTimeExtension } from '@mui/icons-material';
 import Lottie from 'lottie-react';
-import { EarthCanvas, StarsCanvas } from '../components/canvas';
+import { EarthCanvas, EarthWrapper, StarsCanvas } from '../components/canvas';
 import { motion } from 'framer-motion';
 import { Section, Container } from '../components/layout';
 import { Input, Textarea} from "../components/forms"
@@ -159,7 +159,7 @@ export default function Contact() {
                             delay={1.5}
                         />
                         
-                        <EarthCanvas />
+                        <EarthWrapper />
                     </motion.div>
                                     
                     {/* Formulaire de contact - Vient de la droite */}
