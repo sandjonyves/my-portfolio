@@ -2,12 +2,49 @@
 
 import { useTranslation } from 'react-i18next';
 import Link from "next/link";
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui';
 
 const statusColors = {
-  "En production": "bg-green-500/20 text-green-300 border-green-500/30",
+  "En production": "bg-sky-500/20 text-sky-300 border-sky-500/30",
   "Terminé": "bg-blue-500/20 text-blue-300 border-blue-500/30",
-  "En développement": "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  "Prototype": "bg-purple-500/20 text-purple-300 border-purple-500/30"
+  "En développement": "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+  "Prototype": "bg-indigo-500/20 text-indigo-300 border-indigo-500/30"
+};
+
+// Composant pour l'effet de typing
+const TypingEffect = ({ text, delay = 50, className = "" }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setDisplayText(text.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, delay);
+
+    return () => clearInterval(timer);
+  }, [text, delay]);
+
+  useEffect(() => {
+    const cursorTimer = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorTimer);
+  }, []);
+
+  return (
+    <span className={className}>
+      {displayText}
+      {showCursor && <span className="text-sky-400 animate-pulse">▋</span>}
+    </span>
+  );
 };
 
 export default function Projects() {
@@ -21,119 +58,161 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-slate-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20  relative overflow-hidden bg-transparent">
+      {/* Effet de scanlines */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/5 to-transparent pointer-events-none">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(56,189,248,0.03)_2px,rgba(56,189,248,0.03)_4px)]" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-slate-100">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-sky-400 font-mono">
             {t('projects.title')}
           </h2>
-          <div className="w-24 h-1 bg-sky-400 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-sky-400 mx-auto rounded-full animate-pulse" />
         </div>
 
         <div className="space-y-8">
           {projects.slice(0, 2).map((project, index) => (
             <div key={project.title} className="project-item">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-sky-400/20 via-purple-400/20 to-pink-400/20 rounded-lg blur opacity-100 transition-opacity duration-500" />
+                {/* Effet de glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-sky-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative bg-slate-900/80 backdrop-blur-sm rounded-lg overflow-hidden border border-slate-700/50">
+                <div className="relative bg-black/95 backdrop-blur-sm rounded-lg overflow-hidden border border-sky-500/30 shadow-2xl">
                   {/* Terminal Header */}
-                  <div className="bg-slate-900 px-6 py-3 flex items-center space-x-2 border-b border-slate-700">
+                  <div className="bg-slate-800 px-6 py-3 flex items-center space-x-2 border-b border-sky-500/30">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-red-500 rounded-full" />
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                      <div className="w-3 h-3 bg-green-500 rounded-full" />
+                      <div className="w-3 h-3 bg-red-500 rounded-full shadow-lg shadow-red-500/50" />
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-lg shadow-yellow-500/50" />
+                      <div className="w-3 h-3 bg-green-500 rounded-full shadow-lg shadow-green-500/50" />
                     </div>
-                    <div className="flex-1 text-center font-mono text-lg font-semibold select-none text-cyan-300">
-                      {project.title}
+                    <div className="flex-1 text-center font-mono text-lg font-semibold select-none text-sky-400">
+                      sandjonyves@portfolio:~/{project.title.toLowerCase().replace(/\s+/g, '-')}
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium border ${statusColors[project.status]}`}>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium border font-mono ${statusColors[project.status]}`}>
                         {statusLabels[project.status] || project.status}
                       </span>
-                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-700/50 text-slate-300 border border-slate-600">
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-700/50 text-slate-300 border border-slate-600 font-mono">
                         {categoryLabels[project.category] || project.category}
                       </span>
                     </div>
                   </div>
 
                   {/* Terminal Content */}
-                  <div className="bg-slate-950/80 px-6 py-6 font-mono text-base min-h-[280px] text-cyan-100 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-400/5 to-purple-400/5 opacity-50" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.1),transparent_70%)]" />
+                  <div className="bg-black/95 px-6 py-6 font-mono text-sm min-h-[320px] text-sky-300 relative overflow-hidden">
+                    {/* Effet de scanlines internes */}
+                    <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_1px,rgba(56,189,248,0.03)_1px,rgba(56,189,248,0.03)_2px)] pointer-events-none" />
                     
-                    <div className="relative z-10 space-y-2">
+                    {/* Prompt initial */}
+                    <div className="mb-4 text-sky-400">
+                      <span className="text-cyan-400">sandjonyves@portfolio</span>
+                      <span className="text-white">:</span>
+                      <span className="text-blue-400">~/projects</span>
+                      <span className="text-white">$ </span>
+                      <TypingEffect text="cat project.json" className="text-sky-300" />
+                    </div>
+                    
+                    <div className="relative z-10 space-y-1 pl-2">
                       <div className="flex items-center space-x-2">
-                        <span className="text-pink-400">const</span>
-                        <span className="text-cyan-200">project</span>
-                        <span className="text-white">=</span>
                         <span className="text-white">{'{'}</span>
                       </div>
                       
                       <div className="ml-4 space-y-1">
                         <div className="flex items-start">
-                          <span className="text-cyan-200">name</span>
+                          <span className="text-cyan-400">"name"</span>
                           <span className="text-white">:</span>
-                          <span className="text-yellow-300 ml-2">'{project.title}'</span>
+                          <span className="text-yellow-300 ml-2">"{project.title}"</span>
                           <span className="text-white">,</span>
                         </div>
                         
                         <div className="flex items-start">
-                          <span className="text-cyan-200">technologies</span>
+                          <span className="text-cyan-400">"status"</span>
+                          <span className="text-white">:</span>
+                          <span className="text-yellow-300 ml-2">"{project.status}"</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <span className="text-cyan-400">"technologies"</span>
                           <span className="text-white">:</span>
                           <span className="text-white ml-2">[</span>
                         </div>
                         
-                        <div className="ml-4 flex flex-wrap gap-1">
+                        <div className="ml-4 space-y-1">
                           {project.technologies.map((tech, i) => (
-                            <span
-                              key={tech}
-                              className="inline-flex items-center px-2 py-1 bg-slate-800/50 rounded text-yellow-200 text-sm border border-slate-700/50"
-                            >
-                              '{tech}'{i < project.technologies.length - 1 ? ',' : ''}
-                            </span>
+                            <div key={tech} className="flex items-center">
+                              <span className="text-yellow-300">"{tech}"</span>
+                              {i < project.technologies.length - 1 && <span className="text-white">,</span>}
+                            </div>
                           ))}
                         </div>
                         
                         <div className="text-white">],</div>
                         
                         <div className="flex items-start">
-                          <span className="text-cyan-200">description</span>
+                          <span className="text-cyan-400">"description"</span>
                           <span className="text-white">:</span>
-                          <span className="text-sky-300 ml-2">'{project.description}'</span>
+                          <span className="text-sky-300 ml-2">"{project.description}"</span>
                           <span className="text-white">,</span>
                         </div>
                         
                         <div className="flex items-start">
-                          <span className="text-cyan-200">actions</span>
+                          <span className="text-cyan-400">"links"</span>
                           <span className="text-white">:</span>
                           <span className="text-white ml-2">{'{'}</span>
                         </div>
                         
-                        <div className="ml-4 flex space-x-4">
-                          <a
-                            href={project.demo}
-                            className="inline-flex items-center px-4 py-2 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/30 rounded-md text-sky-300 hover:text-sky-200 transition-all duration-200"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Voir le projet →
-                          </a>
-                          
-                          <a
-                            href={project.code}
-                            className="inline-flex items-center px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 rounded-md text-purple-300 hover:text-purple-200 transition-all duration-200"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Code source →
-                          </a>
+                        <div className="ml-4 space-y-1">
+                          <div className="flex items-center">
+                            <span className="text-cyan-400">"demo"</span>
+                            <span className="text-white">:</span>
+                            <span className="text-yellow-300 ml-2">"{project.demo}"</span>
+                            <span className="text-white">,</span>
+                          </div>
+                          <div className="flex items-center">
+                            <span className="text-cyan-400">"source"</span>
+                            <span className="text-white">:</span>
+                            <span className="text-yellow-300 ml-2">"{project.code}"</span>
+                          </div>
                         </div>
                         
                         <div className="text-white">{'}'}</div>
                       </div>
                       
                       <div className="text-white">{'}'}</div>
+                      
+                      {/* Ligne de commande suivante */}
+                      <div className="mt-6 pt-4 border-t border-sky-500/20">
+                        <div className="text-sky-400 mb-2">
+                          <span className="text-cyan-400">sandjonyves@portfolio</span>
+                          <span className="text-white">:</span>
+                          <span className="text-blue-400">~/projects</span>
+                          <span className="text-white">$ </span>
+                          <span className="text-sky-300">open --links</span>
+                        </div>
+                        
+                        <div className="flex space-x-4 mt-2">
+                          <a
+                            href={project.demo}
+                            className="inline-flex items-center px-4 py-2 bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 rounded-md text-sky-300 hover:text-sky-200 transition-all duration-200 font-mono text-sm shadow-lg shadow-sky-500/10"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <span className="text-sky-400">./</span>demo.sh
+                          </a>
+                          
+                          <a
+                            href={project.code}
+                            className="inline-flex items-center px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-md text-cyan-300 hover:text-cyan-200 transition-all duration-200 font-mono text-sm shadow-lg shadow-cyan-500/10"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <span className="text-cyan-400">git</span> clone
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -144,12 +223,14 @@ export default function Projects() {
 
         {/* Voir plus */}
         <div className="text-center mt-16">
+        <Button className="text-center mt-16">
           <Link 
             href="/fr/projects" 
-            className="inline-block px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-sky-500/20 to-purple-500/20 border border-sky-500/30 hover:border-sky-400/50 text-sky-300 hover:text-sky-200 transition-all duration-300"
+            className="inline-block px-8 py-4 text-lg font-semibold rounded-md  border-sky-500/30 hover:border-sky-400/50 text-sky-100 hover:text-sky-200 transition-all duration-300 font-mono shadow-lg shadow-sky-500/10"
           >
-            Voir tous les projets →
+            <span className="text-sky-800">$</span> ls --all-projects
           </Link>
+        </Button>
         </div>
       </div>
     </section>

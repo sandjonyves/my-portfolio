@@ -7,7 +7,7 @@ const Section = ({
   children, 
   className = "",
   background = "default",
-  padding = "py-20",
+  padding = "",
   container = true,
   maxWidth = "max-w-7xl",
   animate = true,

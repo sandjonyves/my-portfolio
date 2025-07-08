@@ -125,15 +125,14 @@ export default function Contact() {
             container={false}
             ref={ref}
         >
-            <Container maxWidth="max-w-3xl">
+            <Container maxWidth="max-w-5xl">
                 <div className="flex flex-col items-center mb-12">
-                    <Badge 
-                        variant="primary" 
-                        size="lg"
-                        className="mb-4 px-8 py-2 bg-gradient-to-r from-sky-400 to-cyan-500 text-white font-mono text-lg rounded-md shadow-lg border-b-4 border-sky-400 neon-text"
-                    >
-                        {t('contact.title')}
-                    </Badge>
+                <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-sky-400 font-mono">
+                    {t('contact.title')}
+                </h2>
+                <div className="w-24 h-1 bg-sky-400 mx-auto rounded-full animate-pulse" />
+                </div>
                     <h2 className="text-3xl sm:text-4xl font-bold text-sky-100 neon-text mb-2 text-center">
                         {t('contact.subtitle')}
                     </h2>

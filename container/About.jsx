@@ -33,11 +33,12 @@ export default function About() {
     <Section 
       id="about" 
       background="dark"
-      padding="py-20"
+      
+      padding=""
       ref={ref}
     >
       <Container>
-        <div className="text-center mb-16">
+        <div className="text-center pt-16 ">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-slate-100">
             {t('about.title')}
           </h2>
