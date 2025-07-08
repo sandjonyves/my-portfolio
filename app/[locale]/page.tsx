@@ -1,3 +1,4 @@
+'use client'
 import {
   Navbar,
   Hero,
@@ -8,17 +9,19 @@ import {
   Experience,
   Contact,
   Footer,
-  StarsBackground
-} from "@/components";
+} from "@/container";
 
-export default function Home() {
+import { StarsBackground } from "@/components/canvas";
+
+export default function HomePage({ params }) {
+  // params.locale = 'en' ou 'fr'
   return (
     <main className="min-h-screen space-bg">
       <StarsBackground />
       <Navbar />
       <Hero />
       <About />
-      <Skills/>
+      <Skills />
       <Experience />
       <Education />
       <Projects />
@@ -26,4 +29,4 @@ export default function Home() {
       <Footer />
     </main>
   );
-}
+} 

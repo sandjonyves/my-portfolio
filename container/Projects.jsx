@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import { useTranslation } from 'react-i18next';
+import { useIntersectionObserver } from "@/lib/hooks";
 const projects = [
   {
     title: "Portfolio Spatial",
@@ -57,6 +58,14 @@ const statusColors = {
 export default function Projects() {
   const [visibleProjects, setVisibleProjects] = useState([]);
   const [hoveredProject, setHoveredProject] = useState(null);
+  const { t } = useTranslation('common');
+  const {ref} = useIntersectionObserver()
+  const projectsRaw = t('projects.list', { returnObjects: true });
+ 
+  const projects =projectsRaw;
+  if (!Array.isArray(projects)) return null;
+  const statusLabels = t('projects.status', { returnObjects: true }) || {};
+  const categoryLabels = t('projects.category', { returnObjects: true }) || {};
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,7 +92,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-slate-800/50">
+    <section ref={ref} id="projects" className="py-20 bg-slate-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2 
@@ -92,7 +101,7 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            Mes Projets
+            {t('projects.title')}
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-sky-400 mx-auto rounded-full"
@@ -143,10 +152,10 @@ export default function Projects() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium border ${statusColors[project.status]}`}>
-                        {project.status}
+                        {statusLabels[project.status] || project.status}
                       </span>
                       <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-700/50 text-slate-300 border border-slate-600">
-                        {project.category}
+                        {categoryLabels[project.category] || project.category}
                       </span>
                     </div>
                   </div>
@@ -199,7 +208,7 @@ export default function Projects() {
                         <div className="flex items-start">
                           <span className="text-cyan-200">description</span>
                           <span className="text-white">:</span>
-                          <span className="text-cyan-300 ml-2">"{project.description}"</span>
+                          <span className="text-sky-300 ml-2">'{project.description}'</span>
                           <span className="text-white">,</span>
                         </div>
                         

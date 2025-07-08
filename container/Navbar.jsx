@@ -1,15 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "./ui";
+import { Button } from "../components/ui";
 import { navigationItems } from "../lib/constants";
 import { useScrollTo } from "../lib/hooks";
+import { useTranslation } from 'react-i18next';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollToElement } = useScrollTo();
+  const { t, i18n } = useTranslation('common');
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -23,6 +28,16 @@ export default function Navbar() {
   const scrollToSection = (href) => {
     scrollToElement(href, { behavior: "smooth" });
     setMobileMenuOpen(false);
+  };
+
+  // Fonction pour changer de langue et rediriger
+  const handleLanguageChange = (lang) => {
+    if (i18n.language !== lang) {
+      // Remplace la locale dans l'URL
+      const segments = pathname.split('/');
+      segments[1] = lang;
+      router.push(segments.join('/'));
+    }
   };
 
   if (!mounted) return null;
@@ -53,9 +68,14 @@ export default function Navbar() {
                   onClick={() => scrollToSection(item.href)}
                   className="text-slate-300 hover:text-sky-400 px-3 py-2 text-base font-semibold transition-all duration-200 hover:neon-text rounded-lg hover:bg-slate-800/50"
                 >
-                  {item.name}
+                  {t(`navbar.${item.name}`)}
                 </Button>
               ))}
+              {/* Bouton de changement de langue */}
+              <div className="ml-4 flex space-x-2">
+                <button onClick={() => handleLanguageChange('en')} className={`px-2 py-1 rounded ${i18n.language === 'en' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:text-sky-400'}`}>EN</button>
+                <button onClick={() => handleLanguageChange('fr')} className={`px-2 py-1 rounded ${i18n.language === 'fr' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:text-sky-400'}`}>FR</button>
+              </div>
             </div>
           </div>
 
@@ -85,7 +105,7 @@ export default function Navbar() {
                   onClick={() => scrollToSection(item.href)}
                   className="text-slate-300 hover:text-sky-400 block px-4 py-3 text-lg font-semibold transition-all duration-200 rounded-lg hover:bg-slate-800/50 w-full text-left"
                 >
-                  {item.name}
+                  {t(`navbar.${item.name}`)}
                 </Button>
               ))}
             </div>

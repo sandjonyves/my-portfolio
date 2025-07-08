@@ -1,0 +1,169 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "salutation":"",
+    "list": [
+      "Développeur Full Stack",
+      "Designer graphique",
+      "Initiation au DevOps",
+      "Notions en test logiciel"
+    ],
+    "description":"Navigating the galaxies of code, I design applications like digital exploration vessels. Each project is a space mission toward innovation and creativity. "
+  },
+
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate developer driven by innovation",
+    "description1": "With over 3 years of experience in web development, I specialize in building modern and high-performance applications. My expertise covers the entire technical stack, from frontend to backend.",
+    "description2": "I am always on the lookout for new technologies and best practices to deliver innovative solutions and exceptional user experiences."
+  },
+  "projects": {
+    "title": "Projects",
+    "list": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "Complete e-commerce platform with product management, cart, online payments (Stripe), and admin dashboard.",
+        "technologies": ["React.js", "Django", "PostgreSQL", "Stripe", "Redux"],
+        "status": "Completed",
+        "category": "Full Stack",
+        "demo": "https://e-commerce-frontend-smzv.vercel.app",
+        "code": "https://github.com/sandjonyves/E-commerce-backend",
+        "image": "/images/projects/e-commerce-platform.png"
+      },
+      {
+        "title": "Manage Automaton",
+        "description": "App to perform operations on finite automata (DFA/NFA): string testing, conversion, simplification, and more.",
+        "technologies": ["Next.js", "Django"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://tp-automate-frontend.onrender.com/pages/automates/1",
+        "code": "https://github.com/sandjonyves/automate-frontend",
+        "image": "/images/projects/manage-automaton.jpg"
+      },
+      {
+        "title": "Image Compression App",
+        "description": "Image compression app with drag-and-drop and no visible quality loss.",
+        "technologies": ["Next.js"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://image-compressor-seven-zeta.vercel.app/",
+        "code": "https://github.com/sandjonyves/ImageCompressor/",
+        "image": "/images/projects/image-compression.jpg"
+      },
+      {
+        "title": "QR Code Generator",
+        "description": "Simple and customizable QR code generator app.",
+        "technologies": ["Next.js"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://qr-code-generator-three-rose.vercel.app/",
+        "code": "https://github.com/sandjonyves/qr-code-generator",
+        "image": "/images/projects/qr-code-generator.jpg"
+      },
+      {
+        "title": "3R Platform",
+        "description": "Awareness platform for recycling and circular economy.",
+        "technologies": ["Next.js", "Django"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://3r-platform.vercel.app/",
+        "code": "https://github.com/sandjonyves/backend-3R-hackathon",
+        "image": "/images/projects/3r-platform.pmg"
+      },
+      {
+        "title": "Student ID Generator",
+        "description": "Modern app to quickly generate custom student ID cards.",
+        "technologies": ["React.js", "Django"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://tp-311-frontend.vercel.app/",
+        "code": "https://github.com/sandjonyves/tp-311-frontend",
+        "image": "/images/projects/student-id-generator.jpg"
+      },
+      {
+        "title": "Propelize (Car Sales Platform)",
+        "description": "Used car sales platform with advanced filters, notifications, and automated testing.",
+        "technologies": ["Next.js", "Node.js", "Vitest", "Playwright"],
+        "status": "In production",
+        "category": "Frontend",
+        "demo": "https://tp-gl-frontend.vercel.app/",
+        "code": "https://github.com/sandjonyves/tp_gl_groupe7-back_front",
+        "image": "/images/projects/propelize.jpg"
+      }
+    ],
+  
+    "type": {
+      "Pro": "Pro",
+      "Personal": "Personal"
+    }
+  },
+
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic background",
+    "list": [
+      {
+        "date": "Since - Juin 2025",
+        "title": "BACHELOR DEGREE IN INFORMATION SYSTEM AND SOFTWARE ENGINEERING",
+        "school": "University of Yaounde 1"
+      },
+      {
+        "date": "Since Sept 2012",
+        "title": "GCE - Scientific stream",
+        "school": "Government High School Bangangté"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "My technical skills & tools",
+    "list": [
+      {
+        "category": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion"]
+      },
+      {
+        "category": "Backend",
+        "skills": ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB", "GraphQL"]
+      },
+      {
+        "category": "DevOps",
+        "skills": ["Docker", "Kubernetes", "Vercel", "CI/CD", "Monitoring"]
+      },
+      {
+        "category": "Software Testing",
+        "skills": ["Vitest", "Jest", "Playwright"]
+      },
+      {
+        "category": "Tools",
+        "skills": ["Git", "GitHub", "VS Code", "Figma", "Postman"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's talk about your project!",
+    "form": {
+      "name": "Name",
+      "email": "Your email",
+      "message": "Your message",
+      "placeholder_name": "Your name",
+      "placeholder_email": "your@email.com",
+      "placeholder_message": "Leave a comment...",
+      "send": "Send"
+    },
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "text": "All rights reserved."
+  }
+} 

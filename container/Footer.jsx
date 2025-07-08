@@ -1,9 +1,12 @@
 "use client";
 
-import { Section, Container } from "./layout";
+import { Section, Container } from "../components/layout";
 import { socialLinks } from "../lib/constants";
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation('common');
+
   return (
     <Section 
       background="default"
@@ -35,9 +38,9 @@ export default function Footer() {
             ))}
           </div>
           
-          <p className="text-slate-400 text-sm">
-            © 2024 Sandjon Yves. Tous droits réservés.
-          </p>
+          <footer className="py-8 text-center text-slate-400 text-sm">
+            {t('footer.text', 'Tous droits réservés.')}
+          </footer>
         </div>
       </Container>
     </Section>

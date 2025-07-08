@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "education": "Éducation",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "hero":{
+    "salutation":"",
+    "list": [
+        "Développeur Full Stack",
+        "Designer graphique",
+        "Initiation au DevOps",
+        "Notions en test logiciel"
+    ],
+    "description":"Naviguant à travers les galaxies du code, je conçois des applications comme des vaisseaux d’exploration numérique. Chaque projet est une mission spatiale vers l’innovation et la créativité."
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Développeur passionné par l'innovation",
+    "description1": "Avec plus de 3 ans d'expérience dans le développement web, je me spécialise dans la création d'applications modernes et performantes. Mon expertise couvre l'ensemble de la stack technique, du frontend au backend.",
+    "description2": "Je suis constamment à l'affût des nouvelles technologies et des meilleures pratiques pour offrir des solutions innovantes et des expériences utilisateur exceptionnelles."
+  },
+  "projects": {
+    "title": "Projets",
+    "list": [
+      {
+        "title": "Plateforme E-Commerce",
+        "description": "Plateforme e-commerce complète avec gestion des produits, panier, paiements en ligne (Stripe) et tableau de bord administrateur.",
+        "technologies": ["React.js", "Django", "PostgreSQL", "Stripe", "Redux"],
+        "statut": "Terminé",
+        "categorie": "Full Stack",
+        "demo": "https://e-commerce-frontend-smzv.vercel.app",
+        "code": "https://github.com/sandjonyves/E-commerce-backend",
+        "image": "/images/projects/e-commerce-platform.png"
+      },
+      {
+        "title": "Gestion d’Automates",
+        "description": "Application permettant d'effectuer des opérations sur des automates finis (DFA/NFA) : test de chaînes, conversions, simplification, etc.",
+        "technologies": ["Next.js", "Django"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://tp-automate-frontend.onrender.com/pages/automates/1",
+        "code": "https://github.com/sandjonyves/automate-frontend",
+        "image": "/images/projects/manage-automaton.jpg"
+      },
+      {
+        "title": "Application de Compression d'Images",
+        "description": "Application de compression d'image avec glisser-déposer, sans perte visible de qualité.",
+        "technologies": ["Next.js"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://image-compressor-seven-zeta.vercel.app/",
+        "code": "https://github.com/sandjonyves/ImageCompressor/",
+        "image": "/images/projects/image-compression.jpg"
+      },
+      {
+        "title": "Générateur de QR Code",
+        "description": "Générateur de codes QR simple, rapide et personnalisable.",
+        "technologies": ["Next.js"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://qr-code-generator-three-rose.vercel.app/",
+        "code": "https://github.com/sandjonyves/qr-code-generator",
+        "image": "/images/projects/qr-code-generator.jpg"
+      },
+      {
+        "title": "Plateforme 3R",
+        "description": "Plateforme de sensibilisation au recyclage et à l’économie circulaire.",
+        "technologies": ["Next.js", "Django"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://3r-platform.vercel.app/",
+        "code": "https://github.com/sandjonyves/backend-3R-hackathon",
+        "image": "/images/projects/3r-platform.jpg"
+      },
+      {
+        "title": "Générateur de cartes d'étudiant",
+        "description": "Application moderne pour générer rapidement des cartes d’étudiants personnalisées.",
+        "technologies": ["React.js", "Django"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://tp-311-frontend.vercel.app/",
+        "code": "https://github.com/sandjonyves/tp-311-frontend",
+        "image": "/images/projects/student-id-generator.jpg"
+      },
+      {
+        "title": "Propelize (Vente de voitures)",
+        "description": "Plateforme de vente de véhicules d'occasion avec filtres avancés, notifications et tests automatisés.",
+        "technologies": ["Next.js", "Node.js", "Vitest", "Playwright"],
+        "statut": "En production",
+        "categorie": "Frontend",
+        "demo": "https://tp-gl-frontend.vercel.app/",
+        "code": "https://github.com/sandjonyves/tp_gl_groupe7-back_front",
+        "image": "/images/projects/propelize.jpg"
+      }
+    ],
+    "status": {
+      "En production": "En production",
+      "Terminé": "Terminé",
+      "En développement": "En développement",
+      "Prototype": "Prototype"
+    },
+    "category": {
+      "Frontend": "Frontend",
+      "Full Stack": "Full Stack",
+      "AI/ML": "IA/ML"
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel & personnel",
+    "list": [
+      {
+        "type": "Pro",
+        "title": "Stagiaire Développeur Web",
+        "company": "Startup Tech",
+        "date": "2023 - 2025",
+        "demo": "https://votre-portfolio.com",
+        "code": "https://github.com/votre-username/portfolio",
+        "image": "/images/projects/project1.jpg",
+        "description": "Participation à la refonte d'une plateforme SaaS, développement de modules front-end et back-end, collaboration en équipe agile."
+      },
+      {
+        "type": "Pro",
+        "title": "Développeur Full Stack (Freelance)",
+        "company": "Indépendant",
+        "date": "2023 - Aujourd'hui",
+        "demo": "https://votre-portfolio.com",
+        "code": "https://github.com/votre-username/portfolio",
+        "image": "/images/projects/project1.jpg",
+        "description": "Développement d'applications web et mobile des clients variés (e-commerce, dashboards, sites vitrines). Stack : React, Next.js, Node.js, MongoDB, Tailwind CSS."
+      },
+      {
+        "type": "Perso",
+        "title": "Projet personnel : Portfolio 3D Next.js",
+        "company": "Projet personnel",
+        "date": "2024",
+        "demo": "https://votre-portfolio.com",
+        "code": "https://github.com/votre-username/portfolio",
+        "image": "/images/projects/project1.jpg",
+        "description": "Création de mon portfolio interactif avec animations 3D, thème spatial et intégration Lottie. Focus sur l'expérience utilisateur et la performance."
+      }
+
+    ],
+    "type": {
+      "Pro": "Pro",
+      "Perso": "Perso"
+    }
+  },
+  "education": {
+    "title": "Éducation",
+    "subtitle": "Mon parcours académique",
+    "list": [
+      {
+        "date": " Depuis - Juin 2025",
+        "title": "LICENCE EN SYSTÈMES D'INFORMATION ET INGÉNIERIE LOGICIELLE",
+        "school": "Université de Yaoundé 1"
+      },
+      {
+        "date": "Since Sept 2022",
+        "title": "Baccalaureate - Scientifique",
+        "school": "Bilingual High School Yaoundé"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Mes compétences techniques & outils",
+    "list": [
+      {
+        "category": "Frontend",
+        "skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion"]
+      },
+      {
+        "category": "Backend",
+        "skills": ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB", "GraphQL"]
+      },
+      {
+        "category": "DevOps",
+        "skills": ["Docker", "Kubernetes", "AWS", "Vercel", "CI/CD", "Monitoring"]
+      },
+      {
+        "category": "Test Logiciel",
+        "skills": ["Vitest", "Jest", "Playwright"]
+      },
+      {
+        "category": "Outils",
+        "skills": ["Git", "GitHub", "VS Code", "Figma", "Postman"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "Discutons de votre projet !",
+    "form": {
+      "name": "Nom",
+      "email": "Votre email",
+      "message": "Votre message",
+      "placeholder_name": "Votre nom",
+      "placeholder_email": "votre@email.com",
+      "placeholder_message": "Laissez un commentaire...",
+      "send": "Envoyer"
+    },
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "text": "Tous droits réservés."
+  }
+} 

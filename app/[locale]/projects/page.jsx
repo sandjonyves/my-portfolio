@@ -3,13 +3,20 @@
 import { motion } from "framer-motion";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { Section, Container, Button } from "../../components/layout";
-import ProjectCard from "../../components/cards/ProjectCard";
-import { projects } from "../../lib/constants";
-
+import { Section, Container } from "../../../components/layout";
+import {Button} from '../../../components/ui'
+import ProjectCard from "../../../components/cards/ProjectCard";
+import { projects } from "../../../lib/constants";
+import { useTranslation } from 'react-i18next';
+import { useIntersectionObserver } from "../../../lib/hooks";
 const ProjectsPage = () => {
+  const { t } = useTranslation('common');
+  const {ref} = useIntersectionObserver()
+  const projectsRaw = t('projects.list', { returnObjects: true });
+ console.log(projectsRaw)
+  const projects =projectsRaw;
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div ref={ref} className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
       <Section 
         id="projects-header"

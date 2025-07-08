@@ -1,31 +1,16 @@
 "use client";
 
 import Lottie from "lottie-react";
-import { Section, Container } from "./layout";
-import {Card} from './ui'
+import { Section, Container } from "../components/layout";
+import {Card} from '../components/ui'
 import { useIntersectionObserver } from "../lib/hooks";
-
-const educationData = [
-  {
-    date: "Since - Sept 2022",
-    title: "BACHELOR DEGREE IN INFORMATION SYSTEM AND SOFTWARE ENGINEERING",
-    school: "University of Yaounde 1",
-    icon: (
-      <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="inline-block mr-3 text-sky-400 drop-shadow-neon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 17l-4 4m0 0l-4-4m4 4V3" /></svg>
-    ),
-  },
-  {
-    date: "Since - Sept 2018",
-    title: "GCE - ADVANCED LEVEL",
-    school: "Government Bilingual High School Yaounde",
-    icon: (
-      <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="inline-block mr-3 text-sky-400 drop-shadow-neon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 17l-4 4m0 0l-4-4m4 4V3" /></svg>
-    ),
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Education() {
+  const { t } = useTranslation('common');
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.3 });
+  const educationDataRaw = t('education.list', { returnObjects: true });
+  const educationData = Array.isArray(educationDataRaw) ? educationDataRaw : [];
 
   return (
     <Section 
@@ -54,7 +39,7 @@ export default function Education() {
             <div className="flex justify-center md:justify-start mb-6">
               <div className="relative">
                 <span className="absolute left-1/2 -translate-x-1/2 -top-8 px-8 py-2 bg-gradient-to-r from-sky-400 to-cyan-500 text-white font-mono text-lg rounded-md shadow-lg border-b-4 border-sky-400 neon-text">
-                  Education
+                  {t('education.title')}
                 </span>
               </div>
             </div>

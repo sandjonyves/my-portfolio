@@ -3,13 +3,16 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { Suspense, useState, useEffect } from "react";
-import StarsBackground from "./StarsBackground";
-import { Typewriter } from "./animations";
-import { Button } from "./ui";
+import { StarsBackground } from "@/components/canvas";
+import { Typewriter } from "@/components/animations";
+import { Button } from "@/components/ui";
 import { useScrollTo } from "../lib/hooks";
 import Image from "next/image";
+import { useTranslation } from 'react-i18next';
+import { useIntersectionObserver } from "../lib/hooks";
 
 function Planet({ color, size, position, rotationSpeed = 1 }) {
+ 
   return (
     <Sphere args={[size, 32, 32]} position={position}>
       <meshStandardMaterial
@@ -81,18 +84,22 @@ function SolarSystem() {
   );
 }
 
-const skills = [
-  "Développeur Full Stack",
-  "Spécialiste React/Next.js",
-  "Passionné d'IA & ML",
-  "Explorateur Spatial Digital"
-];
+// const skills = [
+//   "Développeur Full Stack",
+//   "Spécialiste React/Next.js",
+//   "Passionné d'IA & ML",
+//   "Explorateur Spatial Digital"
+// ];
 
 export default function Hero() {
+  const {t} = useTranslation('common')
+  const {ref} = useIntersectionObserver({ threshold: 0.3 })
   const [mounted, setMounted] = useState(false);
   const { scrollToElement } = useScrollTo();
+  const skills = t('hero.list',{returnObjects:true})
 
   useEffect(() => {
+    console.log(skills)
     setMounted(true);
   }, []);
 
@@ -101,7 +108,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen space-bg relative overflow-hidden">
+    <section ref={ref} id="home" className="min-h-screen space-bg relative overflow-hidden">
       <StarsBackground />
       
       {/* Background Animation */}
@@ -144,9 +151,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-xl sm:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0 text-slate-300">
-              Naviguant à travers les galaxies du code, je crée des applications 
-              qui transcendent les limites du possible. Chaque projet est une 
-              nouvelle mission spatiale vers l'innovation.
+            {t('hero.description')}
             </p>
 
             {/* CTA Button */}

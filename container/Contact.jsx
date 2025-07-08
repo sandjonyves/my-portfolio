@@ -6,15 +6,18 @@ import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { SendTimeExtension } from '@mui/icons-material';
 import Lottie from 'lottie-react';
-import { EarthCanvas, StarsCanvas } from './canvas';
+import { EarthCanvas, StarsCanvas } from '../components/canvas';
 import { motion } from 'framer-motion';
-import { Section, Container } from './layout';
-import { Input, Textarea} from "./forms"
-import {Button} from './ui'
-import { FloatingParticles } from './animations';
+import { Section, Container } from '../components/layout';
+import { Input, Textarea} from "../components/forms"
+import {Button} from '../components/ui'
+import { FloatingParticles } from '../components/animations';
 import { useIntersectionObserver } from '../lib/hooks';
+import { useTranslation } from 'react-i18next';
+import { Badge } from '../components/ui';
 
 export default function Contact() {
+    const { t } = useTranslation('common');
     const service_id = 'service_5jqqipm';
     const template_id = 'template_jtdi41t';
     const user_id = 'kHkqy5hA04JrfIAK-';
@@ -117,24 +120,24 @@ export default function Contact() {
     return (
         <Section 
             id="contact" 
-            background="default"
-            padding="py-20"
+            background="dark"
+            padding="py-24"
             container={false}
             ref={ref}
         >
-            <Container maxWidth="max-w-5xl">
-                {/* Titre animé */}
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={isIntersecting ? { y: 0, opacity: 1 } : {}}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-100 mb-4">
-                        Contactez-moi
+            <Container maxWidth="max-w-3xl">
+                <div className="flex flex-col items-center mb-12">
+                    <Badge 
+                        variant="primary" 
+                        size="lg"
+                        className="mb-4 px-8 py-2 bg-gradient-to-r from-sky-400 to-cyan-500 text-white font-mono text-lg rounded-md shadow-lg border-b-4 border-sky-400 neon-text"
+                    >
+                        {t('contact.title')}
+                    </Badge>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-sky-100 neon-text mb-2 text-center">
+                        {t('contact.subtitle')}
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 mx-auto rounded-full"></div>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Animation Earth Canvas - Vient de la gauche */}
@@ -169,10 +172,10 @@ export default function Contact() {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {/* Champ Nom */}
                             <Input
-                                label="Nom"
+                                label={t('contact.form.name')}
                                 name="from_name"
                                 type="text"
-                                placeholder="Votre nom"
+                                placeholder={t('contact.form.placeholder_name')}
                                 value={formData.from_name}
                                 onChange={handleChange}
                                 required
@@ -180,10 +183,10 @@ export default function Contact() {
 
                             {/* Champ Email */}
                             <Input
-                                label="Votre email"
+                                label={t('contact.form.email')}
                                 name="from_email"
                                 type="email"
-                                placeholder="sandjonyves@gmail.com"
+                                placeholder={t('contact.form.placeholder_email')}
                                 value={formData.from_email}
                                 onChange={handleChange}
                                 required
@@ -191,9 +194,9 @@ export default function Contact() {
 
                             {/* Champ Message */}
                             <Textarea
-                                label="Votre message"
+                                label={t('contact.form.message')}
                                 name="message"
-                                placeholder="Laissez un commentaire..."
+                                placeholder={t('contact.form.placeholder_message')}
                                 value={formData.message}
                                 onChange={handleChange}
                                 rows={5}
@@ -214,31 +217,19 @@ export default function Contact() {
                                     icon={<SendTimeExtension />}
                                     className="w-full"
                                 >
-                                    {loading ? 'Envoi en cours...' : 'Envoyer le message'}
+                                    {loading ? t('contact.form.send') + '...' : t('contact.form.send')}
                                 </Button>
                             </motion.div>
                         </form>
                         
-                        <Snackbar 
-                            open={!!feedbackMessage} 
-                            autoHideDuration={6000} 
-                            onClose={() => setFeedbackMessage('')}
-                            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                        >
-                            <Alert 
-                                onClose={() => setFeedbackMessage('')} 
-                                severity={error ? 'error' : 'success'}
-                                sx={{ 
-                                    backgroundColor: error ? '#ef4444' : '#10b981',
-                                    color: 'white',
-                                    '& .MuiAlert-icon': {
-                                        color: 'white'
-                                    }
-                                }}
-                            >
-                                {feedbackMessage}
-                            </Alert>
-                        </Snackbar>
+                        {/* Feedback message */}
+                        {feedbackMessage && (
+                            <Snackbar open autoHideDuration={6000} onClose={() => setFeedbackMessage('')}>
+                                <Alert onClose={() => setFeedbackMessage('')} severity={error ? 'error' : 'success'} sx={{ width: '100%' }}>
+                                    {error ? t('contact.error') : t('contact.success')}
+                                </Alert>
+                            </Snackbar>
+                        )}
                     </motion.div>
                 </div>
             </Container>
