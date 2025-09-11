@@ -6,6 +6,8 @@ import { navigationItems } from "../lib/constants";
 import { useScrollTo } from "../lib/hooks";
 import { useTranslation } from 'react-i18next';
 import { useRouter, usePathname } from 'next/navigation';
+import Image from "next/image";
+
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
@@ -30,10 +32,8 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  // Fonction pour changer de langue et rediriger
   const handleLanguageChange = (lang) => {
     if (i18n.language !== lang) {
-      // Remplace la locale dans l'URL
       const segments = pathname.split('/');
       segments[1] = lang;
       router.push(segments.join('/'));
@@ -52,14 +52,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
+              <Image src={require('../public/images/logo/logo.png')} width={30} height={60}/>
+
             <h1 className="text-3xl font-bold text-sky-400 neon-text">
-              Portfolio
             </h1>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-12 flex items-baseline space-x-8">
+            <div className="ml-8 flex items-baseline space-x-8">
               {navigationItems.map((item) => (
                 <Button
                   key={item.name}

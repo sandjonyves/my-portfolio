@@ -8,16 +8,16 @@
     "skills": "Skills",
     "contact": "Contact"
   },
-  "hero": {
-    "salutation":"",
-    "list": [
-      "Développeur Full Stack",
-      "Designer graphique",
-      "Initiation au DevOps",
-      "Notions en test logiciel"
-    ],
-    "description":"Navigating the galaxies of code, I design applications like digital exploration vessels. Each project is a space mission toward innovation and creativity. "
-  },
+"hero": {
+  "salutation": "Hello, I am",
+  "list": [
+    "Full Stack Developer",
+    "Graphic Designer",
+    "Introduction to DevOps",
+    "Basic Knowledge of Software Testing"
+  ],
+  "description": "Navigating through the galaxies of code, I craft applications like digital exploration vessels. Each project is a space mission driven by innovation and creativity."
+},
 
   "about": {
     "title": "About Me",
@@ -105,6 +105,46 @@
       "Personal": "Personal"
     }
   },
+"experience": {
+  "title": "Experience",
+  "subtitle": "My professional & personal journey",
+  "list": [
+    {
+      "type": "Pro",
+      "title": "Web Developer Intern",
+      "company": "Startup Tech",
+      "date": "2023 - 2025",
+      "demo": "https://votre-portfolio.com",
+      "code": "https://github.com/votre-username/portfolio",
+      "image": "/images/projects/project1.jpg",
+      "description": "Contributed to the redesign of a SaaS platform, developed front-end and back-end modules, and collaborated within an agile team."
+    },
+    {
+      "type": "Pro",
+      "title": "Full Stack Developer (Freelance)",
+      "company": "Freelancer",
+      "date": "2023 - Present",
+      "demo": "https://votre-portfolio.com",
+      "code": "https://github.com/votre-username/portfolio",
+      "image": "/images/projects/project1.jpg",
+      "description": "Developed web and mobile applications for various clients (e-commerce, dashboards, showcase sites). Tech stack: React, Next.js, Node.js, MongoDB, Tailwind CSS."
+    },
+    {
+      "type": "Perso",
+      "title": "Personal Project: 3D Portfolio with Next.js",
+      "company": "Personal Project",
+      "date": "2024",
+      "demo": "https://votre-portfolio.com",
+      "code": "https://github.com/votre-username/portfolio",
+      "image": "/images/projects/project1.jpg",
+      "description": "Built my interactive portfolio featuring 3D animations, a space theme, and Lottie integration. Focused on user experience and performance."
+    }
+  ],
+  "type": {
+    "Pro": "Pro",
+    "Perso": "Personal"
+  }
+},
 
   "education": {
     "title": "Education",

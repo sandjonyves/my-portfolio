@@ -17,7 +17,7 @@ export default function HomePage({ params }) {
   // params.locale = 'en' ou 'fr'
   return (
     <main className="min-h-screen space-bg">
-      <StarsBackground />
+      {/* <StarsBackground /> */}
       <Navbar />
       <Hero />
       <About />

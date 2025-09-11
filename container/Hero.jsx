@@ -133,9 +133,9 @@ export default function Hero() {
           {/* Left side - Text content */}
           <div className="text-center lg:text-left space-y-10">
             {/* Greeting */}
-            <div className="space-y-6">
+            <div className="mt-6">
               <h3 className="text-xl sm:text-2xl font-semibold neon-text">
-                 Hello, je suis
+                 {t('hero.salutation')}
               </h3>
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold neon-text leading-tight text-white">
                 Sandjon Yves
@@ -180,7 +180,7 @@ export default function Hero() {
     <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-sky-400/20 to-cyan-400/20 border-2 border-sky-400/30 flex items-center justify-center overflow-hidden group">
       <Image 
         src="/images/profile/moi.jpg"
-        width={320} // Slightly larger to ensure full coverage
+        width={320} 
         height={320}
         alt="Profile picture"
         className="rounded-full object-cover transition-transform duration-300 group-hover:scale-105"

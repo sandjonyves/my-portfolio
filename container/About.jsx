@@ -7,6 +7,7 @@ import { Section, Container} from "../components/layout";
 import {Card, Badge } from '../components/ui'
 import { useIntersectionObserver } from "../lib/hooks";
 import { useTranslation } from 'react-i18next';
+import Lottie from "lottie-react";
 
 function AnimatedAvatar() {
   return (
@@ -46,17 +47,13 @@ export default function About() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* 3D Avatar */}
-          <div className="h-96 lg:h-[800px] relative">
-            <Canvas camera={{ position: [0, 0, 5] }}>
-              <Suspense fallback={null}>
-                <ambientLight intensity={2} />
-                <pointLight position={[10, 10, 10]} intensity={1} />
-                <AnimatedAvatar />
-                <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-              </Suspense>
-            </Canvas>
-          </div>
+        
+        <Lottie
+                autoplay
+                loop
+                animationData={require("../public/lottie/About.json")}
+                style={{ height: 420, width: 420 }}
+              />
 
           {/* Content */}
           <div className="space-y-6">

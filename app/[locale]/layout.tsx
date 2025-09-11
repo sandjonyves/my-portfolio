@@ -1,21 +1,22 @@
-
-
-import '../globals.css';
-import { ReactNode } from "react";
+'use client';
+import { useEffect } from 'react';
 import I18nProvider from '@/container/I18nProvider';
-interface LocaleLayoutProps {
-    children: ReactNode;
-    params: { locale: string };
-  }
-export default async function LocaleLayout({ children, params } :LocaleLayoutProps) {
-  const { locale } = await params;
+
+export default function LocaleLayout({
+  children,
+  locale
+}: {
+  children: React.ReactNode;
+  locale: string;
+}) {
+  useEffect(() => {
+    // Mettre à jour l'attribut lang du document
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   return (
-    <html lang={locale}>
-      <body>
-        <I18nProvider locale={locale}>
-          {children}
-        </I18nProvider>
-      </body>
-    </html>
+    <I18nProvider locale={locale}>
+      {children}
+    </I18nProvider>
   );
-} 
+}

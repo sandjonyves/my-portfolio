@@ -9,7 +9,7 @@
     "contact": "Contact"
   },
   "hero":{
-    "salutation":"",
+    "salutation":"Hello je suis",
     "list": [
         "Développeur Full Stack",
         "Designer graphique",
@@ -24,6 +24,8 @@
     "description1": "Avec plus de 3 ans d'expérience dans le développement web, je me spécialise dans la création d'applications modernes et performantes. Mon expertise couvre l'ensemble de la stack technique, du frontend au backend.",
     "description2": "Je suis constamment à l'affût des nouvelles technologies et des meilleures pratiques pour offrir des solutions innovantes et des expériences utilisateur exceptionnelles."
   },
+
+ 
   "projects": {
     "title": "Projets",
     "list": [
@@ -200,8 +202,8 @@
       "name": "Nom",
       "email": "Votre email",
       "message": "Votre message",
-      "placeholder_name": "Votre nom",
-      "placeholder_email": "votre@email.com",
+      "placeholder_name": "yves sandjon",
+      "placeholder_email": "sandjonyves@gmail.com",
       "placeholder_message": "Laissez un commentaire...",
       "send": "Envoyer"
     },
