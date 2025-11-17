@@ -26,14 +26,14 @@ const ProjectsPage = () => {
       >
         <Container maxWidth="max-w-4xl" animate>
           <div className="text-center">
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent mb-6"
             >
               Mes Projets
-            </motion.h1>
+            </motion.h1> */}
             {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
