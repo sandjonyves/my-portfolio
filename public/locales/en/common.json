@@ -16,7 +16,7 @@
     "Introduction to DevOps",
     "Basic Knowledge of Software Testing"
   ],
-  "description": "Navigating through the galaxies of code, I craft applications like digital exploration vessels. Each project is a space mission driven by innovation and creativity."
+  "description": "Passionate about software engineering, I design reliable, scalable, and optimized applications. I place great importance on code quality, performance, and user experience to deliver durable solutions that are perfectly tailored to each project’s needs."
 },
 
   "about": {
@@ -31,7 +31,7 @@
       {
         "title": "E-Commerce Platform",
         "description": "Complete e-commerce platform with product management, cart, online payments (Stripe), and admin dashboard.",
-        "technologies": ["React.js", "Django", "PostgreSQL", "Stripe", "Redux"],
+        "tools": ["React.js", "Django", "PostgreSQL", "Stripe", "Redux"],
         "status": "Completed",
         "category": "Full Stack",
         "demo": "https://e-commerce-frontend-smzv.vercel.app",
@@ -41,7 +41,7 @@
       {
         "title": "Manage Automaton",
         "description": "App to perform operations on finite automata (DFA/NFA): string testing, conversion, simplification, and more.",
-        "technologies": ["Next.js", "Django"],
+        "tools": ["Next.js", "Django"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://tp-automate-frontend.onrender.com/pages/automates/1",
@@ -51,7 +51,7 @@
       {
         "title": "Image Compression App",
         "description": "Image compression app with drag-and-drop and no visible quality loss.",
-        "technologies": ["Next.js"],
+        "tools": ["Next.js"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://image-compressor-seven-zeta.vercel.app/",
@@ -61,7 +61,7 @@
       {
         "title": "QR Code Generator",
         "description": "Simple and customizable QR code generator app.",
-        "technologies": ["Next.js"],
+        "tools": ["Next.js"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://qr-code-generator-three-rose.vercel.app/",
@@ -71,7 +71,7 @@
       {
         "title": "3R Platform",
         "description": "Awareness platform for recycling and circular economy.",
-        "technologies": ["Next.js", "Django"],
+        "tools": ["Next.js", "Django"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://3r-platform.vercel.app/",
@@ -81,7 +81,7 @@
       {
         "title": "Student ID Generator",
         "description": "Modern app to quickly generate custom student ID cards.",
-        "technologies": ["React.js", "Django"],
+        "tools": ["React.js", "Django"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://tp-311-frontend.vercel.app/",
@@ -91,7 +91,7 @@
       {
         "title": "Propelize (Car Sales Platform)",
         "description": "Used car sales platform with advanced filters, notifications, and automated testing.",
-        "technologies": ["Next.js", "Node.js", "Vitest", "Playwright"],
+        "tools": ["Next.js", "Node.js", "Vitest", "Playwright"],
         "status": "In production",
         "category": "Frontend",
         "demo": "https://tp-gl-frontend.vercel.app/",

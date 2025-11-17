@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui';
 
+
 const statusColors = {
   "En production": "bg-sky-500/20 text-sky-300 border-sky-500/30",
   "Terminé": "bg-blue-500/20 text-blue-300 border-blue-500/30",
@@ -47,7 +48,8 @@ const TypingEffect = ({ text, delay = 50, className = "" }) => {
   );
 };
 
-export default function Projects() {
+export default function Projects({handleViewAll}) {
+ 
   const { t } = useTranslation('common');
   const projects = t('projects.list', { returnObjects: true });
   const statusLabels = t('projects.status', { returnObjects: true }) || {};
@@ -141,10 +143,10 @@ export default function Projects() {
                         </div>
                         
                         <div className="ml-4 space-y-1">
-                          {project.technologies.map((tech, i) => (
+                          {project.tools.map((tech, i) => (
                             <div key={tech} className="flex items-center">
                               <span className="text-yellow-300">"{tech}"</span>
-                              {i < project.technologies.length - 1 && <span className="text-white">,</span>}
+                              {i < project.tools.length - 1 && <span className="text-white">,</span>}
                             </div>
                           ))}
                         </div>
@@ -223,13 +225,11 @@ export default function Projects() {
 
         {/* Voir plus */}
         <div className="text-center mt-16">
-        <Button className="text-center mt-16">
-          <Link 
-            href="/fr/projects" 
-            className="inline-block px-8 py-4 text-lg font-semibold rounded-md  border-sky-500/30 hover:border-sky-400/50 text-sky-100 hover:text-sky-200 transition-all duration-300 font-mono shadow-lg shadow-sky-500/10"
-          >
-            <span className="text-sky-800">$</span> ls --all-projects
-          </Link>
+        <Button className="text-center mt-16 w-lg space-x-4 h-16"
+        onClick={handleViewAll}>
+          
+            <span className="text-sky-800">$</span> <span>ls --all-projects</span>
+     
         </Button>
         </div>
       </div>

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Spatial - Développeur Full Stack",
-  description: "Portfolio professionnel d'un développeur Full Stack passionné par les technologies modernes et l'exploration spatiale numérique",
+  title: "Portfolio  - Développeur Full Stack",
+  description: "Portfolio professionnel d'un développeur Full Stack passionné par les technologies modernes et l'exploration  numérique",
 };
 
 export default function RootLayout({

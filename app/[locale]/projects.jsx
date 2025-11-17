@@ -6,15 +6,15 @@ import "react-vertical-timeline-component/style.min.css";
 import { Section, Container } from "../../components/layout";
 import {Button} from '../../components/ui'
 import ProjectCard from "../../components/cards/ProjectCard";
-import { projects } from "../../lib/constants";
+// import { projects } from "../../lib/constants";
 import { useTranslation } from 'react-i18next';
 import { useIntersectionObserver } from "@/lib/hooks";
 const ProjectsPage = () => {
   const { t } = useTranslation('common');
   const {ref} = useIntersectionObserver()
   const projectsRaw = t('projects.list', { returnObjects: true });
- console.log(projectsRaw)
-  // const projects =projectsRaw;
+
+  const projects =projectsRaw;
   return (
     <div ref={ref} className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
@@ -34,7 +34,7 @@ const ProjectsPage = () => {
             >
               Mes Projets
             </motion.h1>
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -42,7 +42,7 @@ const ProjectsPage = () => {
             >
               Découvrez une sélection de mes projets les plus récents, 
               démontrant mes compétences en développement web et mobile.
-            </motion.p>
+            </motion.p> */}
           </div>
         </Container>
       </Section>
@@ -80,7 +80,7 @@ const ProjectsPage = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              <Button
+              {/* <Button
                 variant="space"
                 size="lg"
                 onClick={() => window.location.href = '/'}
@@ -91,7 +91,7 @@ const ProjectsPage = () => {
                 }
               >
                 Retour à l'accueil
-              </Button>
+              </Button> */}
             </motion.div>
           </div>
         </Container>

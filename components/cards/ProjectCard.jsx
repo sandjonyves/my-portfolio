@@ -66,7 +66,7 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Technologies */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {project.technologies.map((tool, toolIndex) => (
+            {project.tools.map((tool, toolIndex) => (
               <Badge
                 key={`tool-${toolIndex}`}
                 variant="tech"

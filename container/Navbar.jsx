@@ -32,13 +32,12 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  const handleLanguageChange = (lang) => {
-    if (i18n.language !== lang) {
-      const segments = pathname.split('/');
-      segments[1] = lang;
-      router.push(segments.join('/'));
-    }
-  };
+ const handleLanguageChange = (lang) => {
+  if (i18n.language !== lang) {
+    i18n.changeLanguage(lang);
+  }
+};
+
 
   if (!mounted) return null;
 
@@ -52,7 +51,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-              <Image src={require('../public/images/logo/logo.png')} width={30} height={60}/>
+              <Image src={require('../public/images/logo/logo.png')} width={30} height={60} alt="logo"/>
 
             <h1 className="text-3xl font-bold text-sky-400 neon-text">
             </h1>
